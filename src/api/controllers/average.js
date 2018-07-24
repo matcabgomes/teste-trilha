@@ -1,14 +1,14 @@
-var messageBO = require('../../business/messageBO');
+var averageBO = require('../../business/averageBO');
 
 module.exports = function() {
-  var business = new messageBO({});
+  var business = new averageBO();
 
   return {
-    getResponse: function(req, res)
+    getAverage: function(req, res)
     {
         request = req.body;
         business
-            .getResponse(request)
+            .getAverage(request)
             .then(function(r){
                 res.status(200).json({"response":r});
             })
@@ -16,6 +16,5 @@ module.exports = function() {
                 res.status(500).json(error);
             });
     }
-    
   }
 };

@@ -1,15 +1,14 @@
-var usersBO = require('../../business/usersBO');
+var sumBO = require('../../business/sumBO');
 
 module.exports = function() {
-  var business = new usersBO();
+  var business = new sumBO();
 
   return {
-    getSession: function(req, res)
+    getSum: function(req, res)
     {
-        console.log('Entered in controller')
         request = req.body;
         business
-            .getSession(request)
+            .getSum(request)
             .then(function(r){
                 res.status(200).json({"response":r});
             })
